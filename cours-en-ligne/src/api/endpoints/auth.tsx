@@ -8,6 +8,12 @@ export const authApiSlice = apiSlice.injectEndpoints({
         method: 'POST',
         body: { ...credentials },
       }),
+      transformResponse: (response: any) => {
+        if (response?.token){
+          localStorage.setItem('accessToken', response.token)
+        }
+        return response
+      }
     }),
     register: builder.mutation({
       query: (userData) => ({
