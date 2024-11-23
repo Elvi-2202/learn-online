@@ -1,9 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-// Définir RootState ici si vous n'avez pas de fichier Store séparé
 export interface RootState {
   auth: AuthState;
-  // Ajoutez d'autres slices si nécessaire
+  
 }
 
 interface AuthState {

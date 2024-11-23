@@ -5,9 +5,6 @@ export const modulesApiSlice = apiSlice.injectEndpoints({
     getModules: builder.query({
       query: () => '/modules',
     }),
-    getModule: builder.query({
-      query: (id) => `/modules/${id}`,
-    }),
     createModule: builder.mutation({
       query: (moduleData) => ({
         url: '/modules',
@@ -15,26 +12,11 @@ export const modulesApiSlice = apiSlice.injectEndpoints({
         body: moduleData,
       }),
     }),
-    updateModule: builder.mutation({
-      query: ({ id, ...moduleData }) => ({
-        url: `/modules/${id}`,
-        method: 'PUT',
-        body: moduleData,
-      }),
-    }),
-    deleteModule: builder.mutation({
-      query: (id) => ({
-        url: `/modules/${id}`,
-        method: 'DELETE',
-      }),
-    }),
+    
   }),
 });
 
 export const {
   useGetModulesQuery,
-  useGetModuleQuery,
   useCreateModuleMutation,
-  useUpdateModuleMutation,
-  useDeleteModuleMutation,
 } = modulesApiSlice;
